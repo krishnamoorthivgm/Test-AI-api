@@ -1,0 +1,68 @@
+﻿
+> nfs-growth-ai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.1 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 3.5s
+  Running TypeScript ...
+  Finished TypeScript in 3.5s ...
+  Collecting page data using 7 workers ...
+node.exe : Error [PrismaClientInitializationError]: 
+`PrismaClient` needs to be constructed with a non-empty, 
+valid `PrismaClientOptions`:
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error [PrismaC 
+   l...ClientOptions`::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at module evaluation (D:\Ytube bot\.next\server\chunks\[
+root-of-the-server]__066ajpo._.js:1:1173)
+    at instantiateModule (D:\Ytube 
+bot\.next\server\chunks\[turbopack]_runtime.js:853:9)
+    at getOrInstantiateModuleFromParent (D:\Ytube 
+bot\.next\server\chunks\[turbopack]_runtime.js:877:12)
+    at Context.esmImport [as i] (D:\Ytube 
+bot\.next\server\chunks\[turbopack]_runtime.js:281:20)
+    at module evaluation (D:\Ytube bot\.next\server\chunks\[
+root-of-the-server]__066ajpo._.js:1:1492)
+    at instantiateModule (D:\Ytube 
+bot\.next\server\chunks\[turbopack]_runtime.js:853:9)
+    at instantiateRuntimeModule (D:\Ytube 
+bot\.next\server\chunks\[turbopack]_runtime.js:882:12)
+    at getOrInstantiateRuntimeModule (D:\Ytube 
+bot\.next\server\chunks\[turbopack]_runtime.js:895:12)
+    at Object.m (D:\Ytube 
+bot\.next\server\chunks\[turbopack]_runtime.js:898:18) {
+  clientVersion: '7.5.0',
+  errorCode: undefined,
+  retryable: undefined
+}
+
+> Build error occurred
+Error: Failed to collect page data for 
+/api/cron/update-descriptions
+    at ignore-listed frames {
+  type: 'Error'
+}
