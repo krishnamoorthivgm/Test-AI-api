@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id        String   @id @default(cuid())
+  title     String
+  url       String   @unique
+  views     Int      @default(0)
+  ctr       Float    @default(0.0)
+  watchTime Float    @default(0.0)
+  metadata  String?  // Store JSON of titles, tags, etc.
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  descriptions DescriptionVersion[]
+}
+
+model DescriptionVersion {
+  id        String   @id @default(cuid())
+  videoId   String
+  content   String
+  seoScore  Int      @default(0)
+  version   Int      @default(1)
+  changelog String?
+  createdAt DateTime @default(now())
+
+  video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
+}
